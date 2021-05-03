@@ -23,7 +23,7 @@ Feature: Hotel Planisphere Member Regist Feature.
   	  	When The browser is started in English mode
         Given The webDriver is chosen in "Chrome"
 #open Hotel Planisphere TOP page
-        Given Page open "https://hotel.testplanisphere.dev/ja/index.html"
+        Given Page open "https://hotel.testplanisphere.dev/en-US/index.html"
         When  Maximise Window
         Then wait "2" second
 
@@ -67,10 +67,10 @@ Feature: Hotel Planisphere Member Regist Feature.
 				Examples:
 				|email                |password  |confirm   |username         |rank     |address       |tel          |gender            |birthday    |notification  |
 				|"harunobu@example.jp"|"password"|"password"|"Harunobu Takeda"|"Premium"|"Osaka Kadoma"|"01234567890"|"male"            |""          |"received"    |
-				|"kagetora@example.jp"|"pass1234"|"pass1234"|"Kagetora Nagao" |"Premium"|"Osaka Kadoma"|"02345678901"|"female"          |"12/11/1960"|"not received"|
-				|"kanta@example.jp"   |"passwd00"|"passwd00"|"Kanta Yamamoto" |"Normal" |""            |"03456789012"|"female"          |"12/11/1960"|"received"    |
-				|"aiko@example.jp"    |"passpass"|"passpass"|"Aiko Naoe"      |"Normal" |"Osaka Kadoma"|""           |"female"          |"12/11/1960"|"not received"|
-				|"masatora@example.jp"|"pass5678"|"pass5678"|"Masatora Sanada"|"Normal" |"Osaka Kadoma"|"04567890123"|"I do not answer."|"12/11/1960"|"received"    |
+				|"kagetora@example.jp"|"pass1234"|"pass1234"|"Kagetora Nagao" |"Premium"|"Osaka Kadoma"|"02345678901"|"female"          |"11/12/1960"|"not received"|
+				|"kanta@example.jp"   |"passwd00"|"passwd00"|"Kanta Yamamoto" |"Normal" |""            |"03456789012"|"female"          |"11/12/1960"|"received"    |
+				|"aiko@example.jp"    |"passpass"|"passpass"|"Aiko Naoe"      |"Normal" |"Osaka Kadoma"|""           |"female"          |"11/12/1960"|"not received"|
+				|"masatora@example.jp"|"pass5678"|"pass5678"|"Masatora Sanada"|"Normal" |"Osaka Kadoma"|"04567890123"|"I do not answer."|"11/12/1960"|"received"    |
 				|"teruhide@example.jp"|"PassWord"|"PassWord"|"Teruhide Usami" |"Normal" |"Osaka Kadoma"|"05678901234"|"female"          |""          |"not received"|
 				|"nobuko@example.jp"  |"PSWORDDD"|"PSWORDDD"|"Nobuko Takeda"  |"Normal" |""            |""           |"other"           |""          |"received"    |
 
@@ -93,9 +93,9 @@ Feature: Hotel Planisphere Member Regist Feature.
 					Examples:
 				|email              |password   |confirm    |username         |rank     |address                    |tel          |gender            |birthday           |notification  |
 				|"clark@example.com"|"password" |"password" |"Clark Evans"    |"Premium"|"Mountain View, California"|"01234567891"|"male"            |""                 |"received"    |
-				|"diana@example.com"|"pass1234" |"pass1234" |"Diana Johansson"|"Normal" |"Redmond, Washington"      |""           |"female"          |"April 1, 2000"    |"not received"|
-				|"ororo@example.com"|"pa55w0rd!"|"pa55w0rd!"|"Ororo Saldana"  |"Premium"|"Cupertino, California"    |"01212341234"|"other"           |"December 17, 1988"|"not received"|
-				|"miles@example.com"|"pass-pass"|"pass-pass"|"Miles Boseman"  |"Normal" |"not answered"             |"01298765432"|"I do not answer."|"August 31, 1992"  |"received"|
+				|"diana@example.com"|"pass1234" |"pass1234" |"Diana Johansson"|"Normal" |"Redmond, Washington"      |""           |"female"          |"01/04/2000"    |"not received"|
+				|"ororo@example.com"|"pa55w0rd!"|"pa55w0rd!"|"Ororo Saldana"  |"Premium"|"Cupertino, California"    |"01212341234"|"other"           |"17/12/1988"|"not received"|
+				|"miles@example.com"|"pass-pass"|"pass-pass"|"Miles Boseman"  |"Normal" |"not answered"             |"01298765432"|"I do not answer."|"31/08/1992"  |"received"|
 
 	Scenario: test end
 #ending

@@ -65,7 +65,7 @@ public class StepDefinitions {
   	  connector.setlangJapanese();
     }
 
-    @Then("画面更新$")
+    @Then("^Screen refresh$")
     public void refresh() throws InterruptedException {
     	connector.refresh();
     }
@@ -75,7 +75,7 @@ public class StepDefinitions {
     	connector.btnClickAndWait_X(name);
     }
 
-    @When("^HOME画面にもどる$")
+    @When("^Return to HOME$")
     public void toHome() {
     	String href = "./index.html";
 
@@ -96,17 +96,17 @@ public class StepDefinitions {
     	connector.btnClickAndWait_CSS(selector);
     }
 
-    @When("予約内容を記録して$")
+    @When("^record the reservation$")
     public void reserveRec() throws InterruptedException {
     	String selector1 = "username";
     	String selector2 = "contact";
 
     	contactType = connector.getReserveUser(selector1, selector2);
 
-        if(contactType.equals("メールでのご連絡")) {
+        if(contactType.equals("By email")) {
         	String selector3 = "email";
         	connector.email = connector.getText(selector3);
-        }else if(contactType.equals("電話でのご連絡")) {
+        }else if(contactType.equals("By telephone")) {
         	String selector4 = "tel";
         	connector.tel = connector.getText(selector4);
         }
@@ -125,17 +125,17 @@ public class StepDefinitions {
     }
 
 /**  Window切り替え **/
-    @Then("親子タブを取得する$")
+    @Then("^Get parent and child tabs$")
     public void parentAndChild() {
     	connector.setWindow();
     }
 
-    @Then("^親タブに切り替える$")
+    @Then("^Switch to parent tab$")
     public void parent() {
     	connector.setParent();
     }
 
-    @Then("子タブに切り替える$")
+    @Then("^Switch to child tab$")
     public void child() {
     	connector.setChild();
     }
@@ -148,7 +148,7 @@ public class StepDefinitions {
  * 予約内容を確認するボタン
  * @throws InterruptedException
  */
-    @When("^予約内容を確認するボタンをクリックする$")
+    @When("^click confirm reservation$")
     public void confirmReserveButton() throws InterruptedException {
     	String selector = "submit-button";
 
@@ -159,7 +159,7 @@ public class StepDefinitions {
  * この内容で確認するボタン
  * @throws InterruptedException
  */
-    @When("^この内容で予約するボタンをクリックする$")
+    @When("^click Submit Reservation$")
     public void clickReserveButton() throws InterruptedException {
     	String selector = "//button[@type='button']";
 
@@ -170,7 +170,7 @@ public class StepDefinitions {
  * 閉じるボタン
  * @throws InterruptedException
  */
-    @When("^閉じるボタンをクリックする$")
+    @When("^click close button$")
     public void clickCloseButton() throws InterruptedException {
     	String selector = "(//button[@type='button'])[3]";
 
@@ -274,59 +274,59 @@ public class StepDefinitions {
 
 /** 入力系 */
 
-    @When("宿泊プランを\"([^\"]*)\"にして$")
+    @When("^user chooses \"([^\"]*)\"$")
     public void planSelect(String plan) {
     	String commandLocater;
     	switch(plan) {
-    	case("お得な特典付きプラン"):
+    	case("Plan with special offers"):
     		commandLocater = "./reserve.html?plan-id=0";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "お得な特典付きプラン";
+    		reserveType = "Plan with special offers";
     		break;
-    	case("プレミアムプラン"):
+    	case("Premium plan"):
     		commandLocater = "./reserve.html?plan-id=1";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "プレミアムプラン";
+    		reserveType = "Premium plan";
     		break;
-    	case("ディナー付きプラン"):
+    	case("With dinner"):
     		commandLocater = "./reserve.html?plan-id=2";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "ディナー付きプラン";
+    		reserveType = "With dinner";
     		break;
-    	case("お得なプラン"):
+    	case("Economical"):
     		commandLocater = "./reserve.html?plan-id=3";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "お得なプラン";
+    		reserveType = "Economical";
     		break;
-    	case("素泊まり"):
+    	case("Staying without meals"):
     		commandLocater = "./reserve.html?plan-id=4";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "素泊まり";
+    		reserveType = "Staying without meals";
     		break;
-    	case("出張ビジネスプラン"):
+    	case("Business trip"):
     		commandLocater = "./reserve.html?plan-id=5";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "出張ビジネスプラン";
+    		reserveType = "Business trip";
     		break;
-    	case("エステ・マッサージプラン"):
+    	case("With beauty salon"):
     		commandLocater = "./reserve.html?plan-id=6";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "エステ・マッサージプラン";
+    		reserveType = "With beauty salon";
     		break;
-    	case("貸し切り露天風呂プラン"):
+    	case("With private onsen"):
     		commandLocater = "./reserve.html?plan-id=7";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "貸し切り露天風呂プラン";
+    		reserveType = "With private onsen";
     		break;
-    	case("カップル限定プラン"):
+    	case("For honeymoon"):
     		commandLocater = "./reserve.html?plan-id=8";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "カップル限定プラン";
+    		reserveType = "For honeymoon";
     		break;
-    	case("テーマパーク優待プラン"):
+    	case("With complimentary ticket"):
     		commandLocater = "./reserve.html?plan-id=9";
     		connector.clickHrefAndWait(commandLocater);
-    		reserveType = "テーマパーク優待プラン";
+    		reserveType = "With complimentary ticket";
     		break;
     	default:
     		commandLocater = "./reserve.html?plan-id=0";
@@ -334,7 +334,7 @@ public class StepDefinitions {
     	}
     }
 
-    @When("宿泊初日の曜日を\"([^\"]*)\"として$")
+    @When("^user selects the check in day of the week as \"([^\"]*)\"$")
     public void fromDay(String startDay) throws InterruptedException {
     	String commandLocater = "date";
 
@@ -381,7 +381,7 @@ public class StepDefinitions {
     	connector.btnClickAndWait_X(commandLocater2);
     }
 
-    @When("連泊数を\"([^\"]*)\"にして$")
+    @When("^user inputs \"([^\"]*)\" as stay$")
     public void termSetting(String termText) {
     	String commandLocater = "term";
 
@@ -392,7 +392,7 @@ public class StepDefinitions {
         connector.termSet(term);
     }
 
-    @When("宿泊人数を\"([^\"]*)\"にして$")
+    @When("^user inputs \"([^\"]*)\" as guests$")
     public void headSetting(String headText) {
     	String commandLocater = "head-count";
 
@@ -400,35 +400,35 @@ public class StepDefinitions {
     	connector.inputAndWait(commandLocater, headText);
     }
 
-    @When("朝食バイキング有無を\"([^\"]*)\"にして$")
+    @When("^user checks \"([^\"]*)\" as Breakfast$")
     public void breakFastSetting(String breakfast) throws InterruptedException {
     	String commandLocater = "breakfast";
 
     	connector.checkBoxClick(commandLocater, breakfast);
     }
 
-    @When("昼からチェックインプランを\"([^\"]*)\"にして$")
+    @When("^user checks \"([^\"]*)\" as Early check in$")
     public void earlySetting(String earlyset) throws InterruptedException {
     	String commandLocater = "early-check-in";
 
     	connector.checkBoxClick(commandLocater, earlyset);
     }
 
-    @When("お得な観光プランを\"([^\"]*)\"にして$")
+    @When("^user checks \"([^\"]*)\" as Sight seeing$")
     public void sightSeeingSetting(String seeing) throws InterruptedException {
     	String commandLocater = "sightseeing";
 
     	connector.checkBoxClick(commandLocater, seeing);
     }
 
-    @When("^氏名を\"([^\"]*)\"として$")
+    @When("^user inputs \"([^\"]*)\" as Name$")
     public void nameSetting(String name) throws InterruptedException {
     	String commandLocater = "username";
 
     	connector.inputAndWait(commandLocater, name);
     }
 
-    @And("^連絡手段を\"([^\"]*)\"にしたら電話番号を\"([^\"]*)\"にするかメールアドレスを\"([^\"]*)\"にするかして$")
+    @And("^user selects \"([^\"]*)\" and inputs \"([^\"]*)\" as Telephone number or inputs \"([^\"]*)\" as mail address$")
     public void contactSet(String contact, String tel, String email) throws InterruptedException {
     	String selector1 = "contact";
     	String selector2 = "tel";
@@ -553,11 +553,11 @@ public class StepDefinitions {
     	connector.checkBoxClick(selector, state);
     }
 
-    @When("連絡事項を\"([^\"]*)\"にして$")
+    @When("^user inputs \"([^\"]*)\" as Special request$")
     public void comentSetting(String comment) {
     	String selector = "comment";
 
-    	if(comment.equals("144文字")) {
+    	if(comment.equals("144chr")) {
     		comment = comment144;
         	connector.inputAndWait(selector, comment);
     	}
@@ -705,8 +705,8 @@ public class StepDefinitions {
 		int birthDate;
 
 		if(birthday.length() != 0) {
-			birthMonth = Integer.valueOf(birthday.substring(0, 2));
-			birthDate = Integer.valueOf(birthday.substring(3, 5));
+			birthDate = Integer.valueOf(birthday.substring(0, 2));
+			birthMonth = Integer.valueOf(birthday.substring(3, 5));
 			birthYear = Integer.valueOf(birthday.substring(6, 10));
 
 			switch(birthMonth) {
@@ -773,28 +773,29 @@ public class StepDefinitions {
   	  assertTrue(connector.isTitlePresent(title));
     }
 
-    @Then("表示のプラン名が\"([^\"]*)\"については表示\"([^\"]*)\"である$")
-    public void test_ContentsList(String planName, String hyouji) throws InterruptedException {
+    @Then("^Plan name is \"([^\"]*)\" indicated about \"([^\"]*)\"$")
+    public void test_ContentsList(String hyouji, String planName) throws InterruptedException {
     	String selector = "card-title";
 
     	assertTrue(connector.checkContensList(selector, planName, hyouji));
     }
 
-    @Then("合計金額は\"([^\"]*)\"となり$")
+    @Then("^test Total-Bill \"([^\"]*)\"$")
     public void testPrice(String price) throws InterruptedException {
     	String selector = "total-bill";
     	boolean res;
 
-        res = connector.testPrice(selector, Integer.valueOf(price));
+        res = connector.testPrice(selector, Double.valueOf(price));
         if(res == true) {
         	assertTrue(res);
         }else {
         	connector.destroySelenium();
         	Thread.sleep(2000);
+        	connector.setLangEnglish();
         	connector.rebootBrowser(mobileBrowserType,mobileUrl);
         	connector.setWindowMax();
         	if(id != null) {
-        		connector.linkClickAndWait("ログイン");
+        		connector.linkClickAndWait("Login");
         		Thread.sleep(1000);
         		selector = "email";
         		connector.inputAndWait(selector, id);
@@ -804,70 +805,70 @@ public class StepDefinitions {
             	connector.btnClickAndWait_ID(selector);
         	}
         	Thread.sleep(1000);
-        	connector.linkClickAndWait("宿泊予約");
+        	connector.linkClickAndWait("Reserve");
         	assertTrue(res);
         }
         	Thread.sleep(1000);
     }
 
-    @Then("部屋タイプは\"([^\"]*)\"となり$")
+    @Then("^test Room-type \"([^\"]*)\"$")
     public void testRoomType(String roomType) throws InterruptedException {
     	String selector = "room-info";
     	String commandLocater;
 
         	switch(reserveType) {
-        	case("お得な特典付きプラン"):
+        	case("Plan with special offers"):
         		commandLocater = "room";
         		selector = "/html/body/div/div[1]/div/h5";
         		connector.switchFrame(commandLocater);
         		assertTrue(connector.testTextX(selector, roomType));
         		connector.switchDefaultFrame();
         		break;
-        	case("プレミアムプラン"):
+        	case("Premium plan"):
         		commandLocater = "room";
         		selector = "/html/body/div/div[1]/div/h5";
         		connector.switchFrame(commandLocater);
         		assertTrue(connector.testTextX(selector, roomType));
         		connector.switchDefaultFrame();
         		break;
-        	case("ディナー付きプラン"):
+        	case("With dinner"):
         		commandLocater = "room";
         		assertTrue(connector.testText(selector, roomType));
         		break;
-        	case("お得なプラン"):
+        	case("Economical"):
         		commandLocater = "room";
         		assertTrue(connector.testText(selector, roomType));
         		break;
-        	case("素泊まり"):
+        	case("Staying without meals"):
         		commandLocater = "room";
         		selector = "/html/body/div/div[1]/div/h5";
         		connector.switchFrame(commandLocater);
         		assertTrue(connector.testTextX(selector, roomType));
         		connector.switchDefaultFrame();
         		break;
-        	case("出張ビジネスプラン"):
+        	case("Business trip"):
         		commandLocater = "room";
         		selector = "/html/body/div/div[1]/div/h5";
         		connector.switchFrame(commandLocater);
         		assertTrue(connector.testTextX(selector, roomType));
         		connector.switchDefaultFrame();
         		break;
-        	case("エステ・マッサージプラン"):
+        	case("With beauty salon"):
         		commandLocater = "room";
         		assertTrue(connector.testText(selector, roomType));
         		break;
-        	case("貸し切り露天風呂プラン"):
+        	case("With private onsen"):
         		commandLocater = "room";
         		assertTrue(connector.testText(selector, roomType));
         		break;
-        	case("カップル限定プラン"):
+        	case("For honeymoon"):
         		commandLocater = "room";
         		selector = "/html/body/div/div[1]/div/h5";
         		connector.switchFrame(commandLocater);
         		assertTrue(connector.testTextX(selector, roomType));
         		connector.switchDefaultFrame();
         		break;
-        	case("テーマパーク優待プラン"):
+        	case("With complimentary ticket"):
         		commandLocater = "room";
         		assertTrue(connector.testText(selector, roomType));
         		break;
@@ -878,7 +879,7 @@ public class StepDefinitions {
 
     }
 
-    @Then("宿泊期間の表示が正しく$")
+    @Then("^test stay dates$")
     public void testReserveTerm() throws InterruptedException {
     	String selector = "term";
 
@@ -891,18 +892,18 @@ public class StepDefinitions {
     	}
     }
 
-    @Then("宿泊人数の表示が\"([^\"]*)\"名様となり$")
+    @Then("^test Guests as \"([^\"]*)\" person$")
     public void testHeadCount(String headcount) throws InterruptedException {
     	String selector = "head-count";
 
-    	headcount = headcount + "名様";
+    	headcount = headcount + " person(s)";
     	assertTrue(connector.testText(selector, headcount));
     }
 
     /**
      * 追加プランの検証
      */
-    @Then("追加プランが\"([^\"]*)\"または\"([^\"]*)\"または\"([^\"]*)\"で正しく$")
+    @Then("^test Additional plans as \"([^\"]*)\" or \"([^\"]*)\" or \"([^\"]*)\"$")
     public void testOption1(String plan1, String plan2, String plan3) throws InterruptedException {
     	String planText;
 
@@ -913,94 +914,95 @@ public class StepDefinitions {
     	String selector5 = "//*[@id=\"plans\"]/ul/li[3]";
 
     	if((plan1.equals("off"))&&(plan2.equals("off"))&&(plan3.equals("off"))) {
-    		planText = "なし";
+    		planText = "none";
     		assertTrue(connector.testTextX(selector1, planText));
     	}
 
     	if((plan1.equals("on"))&&(plan2.equals("off"))&&(plan3.equals("off"))) {
-    		planText = "朝食バイキング";
+    		planText = "Breakfast";
     		assertTrue(connector.testTextX(selector2, planText));
     	}
     	if((plan1.equals("off"))&&(plan2.equals("on"))&&(plan3.equals("off"))) {
-    		planText = "昼からチェックインプラン";
+    		planText = "Early check-in";
     		assertTrue(connector.testTextX(selector2, planText));
     	}
     	if((plan1.equals("off"))&&(plan2.equals("off"))&&(plan3.equals("on"))) {
-    		planText = "お得な観光プラン";
+    		planText = "Sightseeing";
     		assertTrue(connector.testTextX(selector2, planText));
     	}
 
     	if((plan1.equals("on"))&&(plan2.equals("on"))&&(plan3.equals("off"))) {
-    		planText = "朝食バイキング";
+    		planText = "Breakfast";
     		assertTrue(connector.testTextX(selector3, planText));
-    		planText = "昼からチェックインプラン";
+    		planText = "Early check-in";
     		assertTrue(connector.testTextX(selector4, planText));
     	}
     	if((plan1.equals("on"))&&(plan2.equals("off"))&&(plan3.equals("on"))) {
-    		planText = "朝食バイキング";
+    		planText = "Breakfast";
     		assertTrue(connector.testTextX(selector3, planText));
-    		planText = "お得な観光プラン";
+    		planText = "Sightseeing";
     		assertTrue(connector.testTextX(selector4, planText));
     	}
     	if((plan1.equals("off"))&&(plan2.equals("on"))&&(plan3.equals("on"))) {
-    		planText = "昼からチェックインプラン";
+    		planText = "Early check-in";
     		assertTrue(connector.testTextX(selector3, planText));
-    		planText = "お得な観光プラン";
+    		planText = "Sightseeing";
     		assertTrue(connector.testTextX(selector4, planText));
     	}
 
     	if((plan1.equals("on"))&&(plan2.equals("on"))&&(plan3.equals("on"))) {
-    		planText = "朝食バイキング";
+    		planText = "Breakfast";
     		assertTrue(connector.testTextX(selector3, planText));
-    		planText = "昼からチェックインプラン";
+    		planText = "Early check-in";
     		assertTrue(connector.testTextX(selector4, planText));
-    		planText = "お得な観光プラン";
+    		planText = "Sightseeing";
     		assertTrue(connector.testTextX(selector5, planText));
     	}
 
     }
 
-    @Then("氏名の表示が\"([^\"]*)\"様となり$")
+    @Then("^test Name as \"([^\"]*)\"$")
     public void testUsername(String username) throws InterruptedException {
     	String selector = "username";
 
-    	username = username + "様";
+//    	username = username + "様";
     	assertTrue(connector.testText(selector, username));
     }
 
     /**
      * 確認のご連絡検証
      */
-    @Then("^確認連絡の表示が\"([^\"]*)\"で\"([^\"]*)\"か\"([^\"]*)\"で正しく表示され$")
+    @Then("^test Confirmation as \"([^\"]*)\" and telephone as \"([^\"]*)\" or mailadress as \"([^\"]*)\"$")
     public void testContact(String contactText, String telText, String emailText) throws InterruptedException {
     	String selector = "contact";
 
     	switch(contactText) {
-    	case("希望しない"):
+    	case("I don't need."):
+    		contactText = "not required";
     		assertTrue(connector.testText(selector, contactText));
     		break;
-    	case("電話でのご連絡"):
-    		contactText = "電話" + "：" + telText;
+    	case("By telephone"):
+    		contactText = "Tel" + ": " + telText;
 			assertTrue(connector.testText(selector, contactText));
     		break;
-    	case("メールでのご連絡"):
-    		contactText = "メール" + "：" + emailText;
+    	case("By email"):
+    		contactText = "Email" + ": " + emailText;
 			assertTrue(connector.testText(selector, contactText));
     		break;
     	}
     }
 
-    @Then("連絡事項\"([^\"]*)\"が正しく$")
+    @Then("^test Special Request as \"([^\"]*)\"$")
     public void testComment(String comment) throws InterruptedException {
     	String selector = "comment";
 
-    	if(comment.equals("144文字")) {
+    	if(comment.equals("144chr")) {
     		comment = comment144;
     		assertTrue(connector.testText(selector, comment));
     	}
     }
 
-    @Then("ポップアップ表示に\"([^\"]*)\"と\"([^\"]*)\"が表示され$")
+    @Then("^test popup message as \"([^\"]*)\" and \"([^\"]*)\"$")
     public void testPopUp(String message1, String message2) throws InterruptedException {
     	String selector1 = "//div[@id='success-modal']/div/div/div/h5";
     	String selector2 = "//div[@id='success-modal']/div/div/div[2]/p";
