@@ -80,25 +80,25 @@ Feature: Reserve feature
 		|"With beauty salon"        |"Friday"   |"9" |"6"       |"on"     |"on"          |"off"       |"HarunobuTakeda"|"By telephone" |"12345678901"|""                   |"144chr"|"choice room freely"|"5865.00"|
 #		|"With beauty salon"        |"Friday"   |"9" |"6"       |"on"     |"on"          |"off"       |"HarunobuTakeda"|"By telephone" |"12345678901"|""                   |"err"   |"choice room freely"|"5855.00"|
 		|"With beauty salon"        |"Sunday"   |"1" |"6"       |"off"    |"off"         |"on"        |"MasatoraSanada"|"I don't need."|""           |""                   |"144chr"|"choice room freely"|"735.00"|
-#		|"With beauty salon"        |"Tuesday"  |"9" |"6"       |"off"    |"on"          |"off"       |"KantaYamamoto" |"By email"     |""           |"kanta@example.jp"   |"off"   |"choice room freely"|"5190.00"|
-#		|"Plan with special offers" |"Saturday" |"9" |"9"       |"off"    |"off"         |"on"        |"NobukoTakeda"  |"By email"     |""           |"nobutora@example.jp"|"off"   |"Standard Twin"     |"6390.00"|
-#		|"Plan with special offers" |"Thursday" |"9" |"1"       |"off"    |"off"         |"on"        |"KagetoraNagao" |"By telephone" |"23456789012"|""                   |"off"   |"Standard Twin"     |"675.00"|
-#		|"Plan with special offers" |"Tuesday"  |"9" |"1"       |"off"    |"on"          |"off"       |"AikoNaoe"      |"I don't need."|""           |""                   |"off"   |"Standard Twin"     |"675.00"|
-#		|"For honeymoon"            |"Monday"   |"2" |"2"       |"off"    |"off"         |"on"        |"KazumasaUsami" |"By telephone" |"34567890123"|""                   |"144chr"|"Premium Twin"      |"340.00"|
-#		|"For honeymoon"            |"Saturday" |"2" |"2"       |"off"    |"off"         |"on"        |"IetokiKakizaki"|"I don't need."|""           |""                   |"off"   |"Premium Twin"      |"420.00"|
-#		|"For honeymoon"            |"Thursday" |"2" |"2"       |"off"    |"off"         |"off"       |"HarunobuTakeda"|"By email"     |""           |"harunobu@example.jp"|"144chr"|"Premium Twin"      |"320.00"|
-#		|"For honeymoon"            |"Wednesday"|"2" |"2"       |"on"     |"off"         |"off"       |"MasatoraSanada"|"I don't need."|""           |""                   |"off"   |"Premium Twin"      |"360.00"|
-#		|"With complimentary ticket"|"Friday"   |"5" |"9"       |"on"     |"on"          |"off"       |"KantaYamamoto" |"By telephone" |"45678901234"|""                   |"144chr"|"choice room freely"|"5490.00"|
-#		|"With complimentary ticket"|"Saturday" |"5" |"1"       |"on"     |"off"         |"off"       |"NobukoTakeda"  |"By telephone" |"56789012345"|""                   |"off"   |"choice room freely"|"600.00"|
-#		|"With complimentary ticket"|"Tuesday"  |"5" |"1"       |"off"    |"off"         |"off"       |"KagetoraNagao" |"By email"     |""           |"kagetora@example.jp"|"144chr"|"choice room freely"|"525.00"|
-#		|"With complimentary ticket"|"Wednesday"|"1" |"1"       |"off"    |"off"         |"off"       |"AikoNaoe"      |"I don't need."|""           |""                   |"off"   |"choice room freely"|"100.00"|
-#		|"Business trip"            |"Thursday" |"1" |"1"       |"on"     |"off"         |"off"       |"KazumasaUsami" |"By email"     |""           |"kazumasa@example.jp"|"off"   |"Single"            |"85.00"|
-#		|"Business trip"            |"Tuesday"  |"9" |"1"       |"off"    |"off"         |"on"        |"IetokiKakizaki"|"I don't need."|""           |""                   |"144chr"|"Single"            |"722.50"|
-#		|"Business trip"            |"Wednesday"|"9" |"1"       |"off"    |"on"          |"off"       |"HarunobuTakeda"|"By telephone" |"67890123456"|""                   |"144chr"|"Single"            |"722.50"|
-#		|"Staying without meals"    |"Thursday" |"1" |"2"       |"on"     |"off"         |"on"        |"MasatoraSanada"|"I don't need."|""           |""                   |"off"   |"Single"            |"150.00"|
-#		|"With private onsen"       |"Sunday"   |"3" |"1"       |"on"     |"on"          |"off"       |"KantaYamamoto" |"I don't need."|""           |""                   |"144chr"|"choice room freely"|"332.50"|
-# 		|"With private onsen"       |"Thursday" |"3" |"6"       |"on"     |"off"         |"off"       |"NobukoTakeda"  |"By telephone" |"78901234567"|""                   |"off"   |"choice room freely"|"1935.00"|
-#		|"With private onsen"       |"Wednesday"|"1" |"6"       |"off"    |"off"         |"on"        |"KagetoraNagao" |"By telephone" |"89012345678"|""                   |"144chr"|"choice room freely"|"600.00"|
+		|"With beauty salon"        |"Tuesday"  |"9" |"6"       |"off"    |"on"          |"off"       |"KantaYamamoto" |"By email"     |""           |"kanta@example.jp"   |"off"   |"choice room freely"|"5190.00"|
+		|"Plan with special offers" |"Saturday" |"9" |"9"       |"off"    |"off"         |"on"        |"NobukoTakeda"  |"By email"     |""           |"nobutora@example.jp"|"off"   |"Standard Twin"     |"6390.00"|
+		|"Plan with special offers" |"Thursday" |"9" |"1"       |"off"    |"off"         |"on"        |"KagetoraNagao" |"By telephone" |"23456789012"|""                   |"off"   |"Standard Twin"     |"675.00"|
+		|"Plan with special offers" |"Tuesday"  |"9" |"1"       |"off"    |"on"          |"off"       |"AikoNaoe"      |"I don't need."|""           |""                   |"off"   |"Standard Twin"     |"675.00"|
+		|"For honeymoon"            |"Monday"   |"2" |"2"       |"off"    |"off"         |"on"        |"KazumasaUsami" |"By telephone" |"34567890123"|""                   |"144chr"|"Premium Twin"      |"340.00"|
+		|"For honeymoon"            |"Saturday" |"2" |"2"       |"off"    |"off"         |"on"        |"IetokiKakizaki"|"I don't need."|""           |""                   |"off"   |"Premium Twin"      |"420.00"|
+		|"For honeymoon"            |"Thursday" |"2" |"2"       |"off"    |"off"         |"off"       |"HarunobuTakeda"|"By email"     |""           |"harunobu@example.jp"|"144chr"|"Premium Twin"      |"320.00"|
+		|"For honeymoon"            |"Wednesday"|"2" |"2"       |"on"     |"off"         |"off"       |"MasatoraSanada"|"I don't need."|""           |""                   |"off"   |"Premium Twin"      |"360.00"|
+		|"With complimentary ticket"|"Friday"   |"5" |"9"       |"on"     |"on"          |"off"       |"KantaYamamoto" |"By telephone" |"45678901234"|""                   |"144chr"|"choice room freely"|"5490.00"|
+		|"With complimentary ticket"|"Saturday" |"5" |"1"       |"on"     |"off"         |"off"       |"NobukoTakeda"  |"By telephone" |"56789012345"|""                   |"off"   |"choice room freely"|"600.00"|
+		|"With complimentary ticket"|"Tuesday"  |"5" |"1"       |"off"    |"off"         |"off"       |"KagetoraNagao" |"By email"     |""           |"kagetora@example.jp"|"144chr"|"choice room freely"|"525.00"|
+		|"With complimentary ticket"|"Wednesday"|"1" |"1"       |"off"    |"off"         |"off"       |"AikoNaoe"      |"I don't need."|""           |""                   |"off"   |"choice room freely"|"100.00"|
+		|"Business trip"            |"Thursday" |"1" |"1"       |"on"     |"off"         |"off"       |"KazumasaUsami" |"By email"     |""           |"kazumasa@example.jp"|"off"   |"Single"            |"85.00"|
+		|"Business trip"            |"Tuesday"  |"9" |"1"       |"off"    |"off"         |"on"        |"IetokiKakizaki"|"I don't need."|""           |""                   |"144chr"|"Single"            |"722.50"|
+		|"Business trip"            |"Wednesday"|"9" |"1"       |"off"    |"on"          |"off"       |"HarunobuTakeda"|"By telephone" |"67890123456"|""                   |"144chr"|"Single"            |"722.50"|
+		|"Staying without meals"    |"Thursday" |"1" |"2"       |"on"     |"off"         |"on"        |"MasatoraSanada"|"I don't need."|""           |""                   |"off"   |"Single"            |"150.00"|
+		|"With private onsen"       |"Sunday"   |"3" |"1"       |"on"     |"on"          |"off"       |"KantaYamamoto" |"I don't need."|""           |""                   |"144chr"|"choice room freely"|"332.50"|
+ 		|"With private onsen"       |"Thursday" |"3" |"6"       |"on"     |"off"         |"off"       |"NobukoTakeda"  |"By telephone" |"78901234567"|""                   |"off"   |"choice room freely"|"1935.00"|
+		|"With private onsen"       |"Wednesday"|"1" |"6"       |"off"    |"off"         |"on"        |"KagetoraNagao" |"By telephone" |"89012345678"|""                   |"144chr"|"choice room freely"|"600.00"|
 
 
 	Scenario: Back to the HOME
