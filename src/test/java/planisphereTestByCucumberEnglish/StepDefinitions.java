@@ -22,6 +22,13 @@ public class StepDefinitions {
     private static String id;
     private static String passwd;
 
+    /**
+     * 会員登録済みユーザーは、マイページから氏名と電話番号を確認できる
+     * ただし、電話番号は任意
+     */
+        private static String memberName;
+        private static String memberTel;
+        private static String memberMail;
 //    public void WebSteps(WebConnector connector) {
 //        this.connector = connector;
 //    }
@@ -271,6 +278,26 @@ public class StepDefinitions {
 //    	connector.cssButtonClickAndPopUp(commandLocater);
 //    }
 
+/**
+ * 画面から取得系
+ * @throws InterruptedException
+ */
+    @And("^get mail address and username and telephonenumber$")
+    public void getMemberInfo() throws InterruptedException {
+      	String selector;
+
+       	selector = "username";
+       	memberName = connector.getString(selector);
+
+       	selector = "email";
+       	memberMail = connector.getString(selector);
+
+       	selector = "tel";
+       	memberTel = connector.getString(selector);
+       	if(memberTel.equals("not answered")) {
+       		memberTel = null;
+       	}
+    }
 
 /** 入力系 */
 
@@ -340,37 +367,37 @@ public class StepDefinitions {
 
     	switch(startDay) {
     	case("Sunday"):
-            connector.sunday(commandLocater);
+            connector.sundayEN(commandLocater);
             weekEnd = 0;
             connector.dateFromSet();
             break;
     	case("Monday"):
-            connector.monday(commandLocater);
+            connector.mondayEN(commandLocater);
             weekEnd = 0;
             connector.dateFromSet();
             break;
     	case("Tuesday"):
-            connector.tuesday(commandLocater);
+            connector.tuesdayEN(commandLocater);
             weekEnd = 0;
             connector.dateFromSet();
             break;
     	case("Wednesday"):
-            connector.wednesday(commandLocater);
+            connector.wednesdayEN(commandLocater);
             weekEnd = 0;
             connector.dateFromSet();
             break;
     	case("Thursday"):
-            connector.thursday(commandLocater);
+            connector.thursdayEN(commandLocater);
             weekEnd = 0;
             connector.dateFromSet();
             break;
     	case("Friday"):
-            connector.friday(commandLocater);
+            connector.fridayEN(commandLocater);
             weekEnd = 0;
             connector.dateFromSet();
             break;
     	case("Saturday"):
-            connector.saturday(commandLocater);
+            connector.saturdayEN(commandLocater);
             weekEnd = 0;
             connector.dateFromSet();
             break;
@@ -389,7 +416,7 @@ public class StepDefinitions {
         termValueWeekEnd = weekEnd;
         int term = termValue + termValueWeekEnd;
         connector.inputAndWait(commandLocater, termText);
-        connector.termSet(term);
+        connector.termSetEN(term);
     }
 
     @When("^user inputs \"([^\"]*)\" as guests$")
@@ -433,15 +460,25 @@ public class StepDefinitions {
     	String selector1 = "contact";
     	String selector2 = "tel";
     	String selector3 = "email";
+    	String existChr;
 
     	connector.dropDownSelect(selector1, contact);
     	contactType = contact;
     	Thread.sleep(1000);
-    	if(tel.length() != 0) {
-    		connector.inputAndWait(selector2, tel);
-    	}
-    	if(email.length() != 0) {
-    		connector.inputAndWait(selector3, email);
+    	switch(contact) {
+    	case("By telephone"):
+    		existChr = connector.getText(selector2);
+    		if((tel.length() != 0)&&(existChr.length() == 0)) {
+    			connector.inputAndWait(selector2, tel);
+    		}
+    		break;
+    	case("By email"):
+    		existChr = connector.getText(selector3);
+        	if((email.length() != 0)&&(existChr.length() == 0)) {
+        		connector.inputAndWait(selector3, email);
+        	}
+    		break;
+    	default:
     	}
     }
 
@@ -532,7 +569,7 @@ public class StepDefinitions {
     public void inputBirthday(String birthday) throws InterruptedException {
     	String selector = "birthday";
 
-    	connector.birthdayInput(selector, birthday);
+    	connector.birthdayInputEN(selector, birthday);
     }
 
     @And("^check \"([^\"]*)\" in notification select$")
@@ -785,7 +822,7 @@ public class StepDefinitions {
     	String selector = "total-bill";
     	boolean res;
 
-        res = connector.testPrice(selector, Double.valueOf(price));
+        res = connector.testPriceEN(selector, Double.valueOf(price));
         if(res == true) {
         	assertTrue(res);
         }else {
@@ -884,7 +921,7 @@ public class StepDefinitions {
     	String selector = "term";
 
     	try {
-        	assertTrue(connector.testTerm(selector, termValue + termValueWeekEnd));
+        	assertTrue(connector.testTermEN(selector, termValue + termValueWeekEnd));
     	}catch(Exception e) {
     		System.out.println(connector.dateFrom);
     		System.out.println(connector.dateTo);
@@ -982,10 +1019,16 @@ public class StepDefinitions {
     		assertTrue(connector.testText(selector, contactText));
     		break;
     	case("By telephone"):
+    		if(telText.length() == 0) {
+    			telText = connector.tel;
+    		}
     		contactText = "Tel" + ": " + telText;
 			assertTrue(connector.testText(selector, contactText));
     		break;
     	case("By email"):
+    		if(emailText.length() == 0) {
+    			emailText = connector.email;
+    		}
     		contactText = "Email" + ": " + emailText;
 			assertTrue(connector.testText(selector, contactText));
     		break;
