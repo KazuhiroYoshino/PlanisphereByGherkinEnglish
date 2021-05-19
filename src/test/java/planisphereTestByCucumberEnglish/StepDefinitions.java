@@ -2,6 +2,8 @@ package planisphereTestByCucumberEnglish;
 
 import static org.junit.Assert.*;
 
+import java.net.MalformedURLException;
+
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -39,9 +41,10 @@ public class StepDefinitions {
  * 　　　　　 "IE", "Edge", "FireFox", "Opera", "Chrome"
  * 　　ただし、Edge はまともに動きません
  * @throws InterruptedException
+ * @throws MalformedURLException
  */
 	@Given("^The webDriver is chosen in \"([^\"]*)\"$")
-    public void select_webdriver(String browserType) throws InterruptedException {
+    public void select_webdriver(String browserType) throws InterruptedException, MalformedURLException {
 		mobileBrowserType = browserType;
 		connector.selectWebDriver(browserType);
     }
@@ -818,7 +821,7 @@ public class StepDefinitions {
     }
 
     @Then("^test Total-Bill \"([^\"]*)\"$")
-    public void testPrice(String price) throws InterruptedException {
+    public void testPrice(String price) throws InterruptedException, MalformedURLException {
     	String selector = "total-bill";
     	boolean res;
 
